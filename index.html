@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volaris - Buscar vuelos</title>
+    <link rel="stylesheet" href="css/diseño4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<header class="header-fijo">
+  
+  <div class="nav">
+    <div class="nav-left">
+      <img src="imagenes/volaris logo.png" class="logo">
+    </div>
+
+    <div class="nav-right">
+      <a>Español / $ MXN <span class="arrow">▼</span> <span class="divider"></span></a>
+      <a>Regístrate</a>
+      <button class="login">Iniciar sesión</button>
+    </div>
+  </div>
+
+  <div class="nav-second">
+    <nav class="nav-menu">
+      <a class="active">Vuelos</a>
+      <a>Vuelo + Hotel</a>
+      <a>Mi reserva</a>
+      <a>Estatus de vuelo</a>
+    </nav>
+
+    <div class="nav-second-right">
+      <a>Guía de viaje</a>
+      <a>Altitude</a>
+      <a>Nuestros destinos</a>
+      <a>Promociones</a>
+      <a>Privacidad</a>
+      <a>Contacto</a>
+    </div>
+  </div>
+
+</header>
+
+<section class="principal">
+<section class="buscador">
+  <div class="tabs">
+    <button class="on" data-tipo="redondo">Viaje redondo</button>
+    <button data-tipo="sencillo">Viaje sencillo</button>
+  </div>
+
+  <div class="formulario">
+    <div class="campo-grande campo-origen">
+      <input type="text" value="Cd. México (Todos)">
+      <label>Origen</label>
+    </div>
+
+    <button class="swap">⇆</button>
+
+    <div class="campo-grande campo-origen">
+      <input type="text" value="Acapulco">
+      <label>Destino</label>
+    </div>
+
+    <div class="campo-mediano campo-con-icono campo-salida">
+      <i class="far fa-calendar"></i>
+      <div>
+        <label>Salida</label>
+        <input type="date" id="fecha-salida">
+      </div>
+    </div>
+
+    <div class="campo-mediano campo-con-icono campo-regreso">
+      <i class="far fa-calendar"></i>
+      <div>
+        <label>Regreso</label>
+        <input type="date" id="fecha-regreso">
+      </div>
+    </div>
+
+    <div class="campo-mediano campo-pasajeros">
+      <label>Pasajeros</label>
+      <input type="text" value="1 Adulto" readonly>
+      <i class="fas fa-chevron-down"></i>
+      
+      <!-- Dropdown de pasajeros -->
+      <div class="pasajeros-dropdown">
+        <div class="pasajero-item">
+          <div>
+            <strong>Adulto</strong>
+            <small>(13+ años)</small>
+          </div>
+          <div class="counter">
+            <button type="button" class="minus" data-type="adulto">−</button>
+            <span class="count adulto-count">1</span>
+            <button type="button" class="plus" data-type="adulto">+</button>
+          </div>
+        </div>
+
+        <div class="pasajero-item">
+          <div>
+            <strong>Menor</strong>
+            <small>(2-12 años)</small>
+          </div>
+          <div class="counter">
+            <button type="button" class="minus" data-type="menor">−</button>
+            <span class="count menor-count">0</span>
+            <button type="button" class="plus" data-type="menor">+</button>
+          </div>
+        </div>
+
+        <div class="pasajero-item">
+          <div>
+            <strong>Bebé</strong>
+            <small>(0 - 23 meses)</small>
+          </div>
+          <div class="counter">
+            <button type="button" class="minus" data-type="bebe">−</button>
+            <span class="count bebe-count">0</span>
+            <button type="button" class="plus" data-type="bebe">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="campo-mediano campo-codigo">
+      <label class="label-principal">¿Tienes un código de promoción? (Opcional)</label>
+      <input type="text" placeholder="Introduzca su código de promoción">
+    </div>
+  </div>
+
+  <div class="botones">
+    <button class="hotel">Vuelo + Hotel <i class="fas fa-hotel"></i><i class="fas fa-plane"></i></button>
+    <button class="buscar">Buscar vuelos <i class="fas fa-plane"></i></button>
+  </div>
+</section>
+  <!--  SLIDER DE IMÁGENES -->
+<section class="slider">
+  <div class="slides">
+    <input type="radio" name="radio-btn" id="slide1" checked>
+    <input type="radio" name="radio-btn" id="slide2">
+    <input type="radio" name="radio-btn" id="slide3">
+    <div class="slide first">
+      <img src="imagenes/slider1.png">
+    </div>
+    <div class="slide">
+      <img src="imagenes/slider2.png">
+    </div>
+    <div class="slide">
+      <img src="imagenes/slider3.png">
+    </div>
+<!-- Flechas -->
+<div class="flechas">
+  <label class="flecha prev">‹</label>
+  <label class="flecha next">›</label>
+</div>
+    <!-- Controles pequeños abajo -->
+    <div class="manual">
+      <label for="slide1" class="manual-btn"></label>
+      <label for="slide2" class="manual-btn"></label>
+      <label for="slide3" class="manual-btn"></label>
+    </div>
+  </div>
+</section>
+</section>
+<!-- SECCIÓN MEJORES VUELOS -->
+<section class="mejores-vuelos">
+  <h2>Mejores vuelos con Volaris</h2>
+  <div class="filtros">
+    <div class="filtro-grupo">
+      <button class="filtro-btn">De: Cd. México (AICM) <i class="fas fa-chevron-down"></i></button>
+      <button class="filtro-btn">Presupuesto <i class="fas fa-chevron-down"></i></button>
+      <button class="filtro-reiniciar">Reiniciar</button>
+    </div>
+    <button class="filtro-ordenar">
+      <i class="fas fa-bars"></i> Ordenar por: Popularidad <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+  <div class="destinos-container">
+<div class="destinos-grid">
+    <!-- Página 1 (tarjetas 1-4) -->
+    <div class="destino-card">
+      <div class="destino-imagen">
+        <img src="imagenes/cancun.png" alt="Cancún">
+        <span class="imagen-contador">1/20</span>
+      </div>
+      <div class="destino-info">
+        <h3>Ciudad de México (MEX) a Cancún (CUN)</h3>
+        <p class="fecha">15/01/2026</p>
+        <p class="precio">Desde</p>
+        <p class="precio-cantidad"><strong>489 MXN*</strong></p>
+        <p class="detalles">Visto hace: 48 minutos .<br>Sencillo, Clase Económica</p>
+        <button class="reserva-btn">Reserva ahora</button>
+      </div>
+    </div>
+    <div class="destino-card">
+      <div class="destino-imagen">
+        <img src="imagenes/tijuana.png" alt="Tijuana">
+        <span class="imagen-contador">2/20</span>
+      </div>
+      <div class="destino-info">
+        <h3>Ciudad de México (MEX) a Tijuana (TIJ)</h3>
+        <p class="fecha">22/11/2025</p>
+        <p class="precio">Desde</p>
+        <p class="precio-cantidad"><strong>1104 MXN*</strong></p>
+        <p class="detalles">Visto hace: 5 minutos .<br>Sencillo, Clase Económica</p>
+        <button class="reserva-btn">Reserva ahora</button>
+      </div>
+    </div>
+    <div class="destino-card">
+      <div class="destino-imagen">
+        <img src="imagenes/guadalajara.png" alt="Guadalajara">
+        <span class="imagen-contador">3/20</span>
+      </div>
+      <div class="destino-info">
+        <h3>Ciudad de México (MEX) a Guadalajara (GDL)</h3>
+        <p class="fecha">28/01/2026</p>
+        <p class="precio">Desde</p>
+        <p class="precio-cantidad"><strong>99 MXN*</strong></p>
+        <p class="detalles">Visto hace: una hora .<br>Sencillo, Clase Económica</p>
+        <button class="reserva-btn">Reserva ahora</button>
+      </div>
+    </div>
+    <div class="destino-card">
+      <div class="destino-imagen">
+        <img src="imagenes/monterrey.png" alt="Monterrey">
+        <span class="imagen-contador">4/20</span>
+      </div>
+      <div class="destino-info">
+        <h3>Ciudad de México (MEX) a Monterrey (MTY)</h3>
+        <p class="fecha">15/01/2026</p>
+        <p class="precio">Desde</p>
+        <p class="precio-cantidad"><strong>99 MXN*</strong></p>
+        <p class="detalles">Visto hace: una hora .<br>Sencillo, Clase Económica</p>
+        <button class="reserva-btn">Reserva ahora</button>
+      </div>
+    </div>
+  <!-- Página 2 (tarjetas 5-8) -->
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/merida.png" alt="Mérida">
+          <span class="imagen-contador">5/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Mérida (MID)</h3>
+          <p class="fecha">30/11/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>727 MXN*</strong></p>
+          <p class="detalles">Visto hace: 2 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/angeles.png" alt="Los Angeles">
+          <span class="imagen-contador">6/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Los Ángeles (LAX)</h3>
+          <p class="fecha">11/12/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>1,630 MXN*</strong></p>
+          <p class="detalles">Visto hace: 15 minutos .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/cabos.png" alt="Los Cabos">
+          <span class="imagen-contador">7/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Los Cabos (SJD)</h3>
+          <p class="fecha">07/12/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>850 MXN*</strong></p>
+          <p class="detalles">Visto hace: 3 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/vallarta.png" alt="Vallarta">
+          <span class="imagen-contador">8/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Puerto Vallarta (PVR)</h3>
+          <p class="fecha">01/12/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>99 MXN*</strong></p>
+          <p class="detalles">Visto hace: 2 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <!-- Página 3 (tarjetas 9-12) -->
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/tuxtla.png" alt="Tuxtla">
+          <span class="imagen-contador">9/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Tuxtla Gutiérrez (TGZ)</h3>
+          <p class="fecha">13/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>350 MXN*</strong></p>
+          <p class="detalles">Visto hace: 4 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/mexicali.png" alt="Mexicali">
+          <span class="imagen-contador">10/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Mexicali (MXL)</h3>
+          <p class="fecha">27/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>1148 MXN*</strong></p>
+          <p class="detalles">Visto hace: 25 minutos .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/acapulco.png" alt="Acapulco">
+          <span class="imagen-contador">11/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Acapulco(ACA)</h3>
+          <p class="fecha">30/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>337 MXN*</strong></p>
+          <p class="detalles">Visto hace: 5 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/hermosillo.png" alt="hermosillo">
+          <span class="imagen-contador">12/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Hermosillo (HMO)</h3>
+          <p class="fecha">17/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>689 MXN*</strong></p>
+          <p class="detalles">Visto hace: 4 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <!-- Página 4 (tarjetas 13-16) -->
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/chicago.png" alt="Chicago">
+          <span class="imagen-contador">13/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Chicago (ORD)</h3>
+          <p class="fecha">18/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>1587 MXN*</strong></p>
+          <p class="detalles">Visto hace: 6 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/huatulco.png" alt="Huatulco">
+          <span class="imagen-contador">14/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Huatulco (HUX)</h3>
+          <p class="fecha">25/11/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>423 MXN*</strong></p>
+          <p class="detalles">Visto hace: 35 minutos .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/mazatlan.png" alt="Mazatlan">
+          <span class="imagen-contador">15/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Mazatlán(MZT)</h3>
+          <p class="fecha">31/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>613 MXN*</strong></p>
+          <p class="detalles">Visto hace: 7 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/culiacan.png" alt="Culiacan">
+          <span class="imagen-contador">16/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Culiacán (CUL)</h3>
+          <p class="fecha">18/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>689 MXN*</strong></p>
+          <p class="detalles">Visto hace: 6 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <!-- Página 5 (tarjetas 17-20) -->
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/dallas.png" alt="Dallas">
+          <span class="imagen-contador">17/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Dallas (DFW)</h3>
+          <p class="fecha">19/01/2026</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>1553 MXN*</strong></p>
+          <p class="detalles">Visto hace: 8 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/miami.png" alt="Miami">
+          <span class="imagen-contador">18/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a MIami (MIA)</h3>
+          <p class="fecha">26/11/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>2001 MXN*</strong></p>
+          <p class="detalles">Visto hace: 45 minutos .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/escondido.png" alt="Escondido">
+          <span class="imagen-contador">19/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a Puerto Escondido (PXM)</h3>
+          <p class="fecha">08/11/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>408 MXN*</strong></p>
+          <p class="detalles">Visto hace: 9 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+      <div class="destino-card">
+        <div class="destino-imagen">
+          <img src="imagenes/paz.png" alt="Paz">
+          <span class="imagen-contador">20/20</span>
+        </div>
+        <div class="destino-info">
+          <h3>Ciudad de México (MEX) a La Paz (LAP)</h3>
+          <p class="fecha">26/12/2025</p>
+          <p class="precio">Desde</p>
+          <p class="precio-cantidad"><strong>1081 MXN*</strong></p>
+          <p class="detalles">Visto hace: 8 horas .<br>Sencillo, Clase Económica</p>
+          <button class="reserva-btn">Reserva ahora</button>
+        </div>
+      </div>
+    </div>
+    <button class="flecha-destinos flecha-izq">‹</button>
+    <button class="flecha-destinos flecha-der">›</button>
+  </div>
+  <!-- Indicadores de página -->
+  <div class="paginas-indicadores">
+    <span class="pagina-punto activo"></span>
+    <span class="pagina-punto"></span>
+    <span class="pagina-punto"></span>
+    <span class="pagina-punto"></span>
+    <span class="pagina-punto"></span>
+  </div>
+    <p class="subtitulo">Busca en nuestra página el precio que a ti te convenga.*</p>
+</section>
+<!-- SECCIÓN PAGO SEGURO -->
+<section class="pago-seguro">
+  <h2>Pago seguro</h2>
+
+  <div class="pago-box">
+    <div class="metodos-pago">
+      <div class="metodo-grupo">
+        <h3>Tarjeta de crédito, tarjeta de débito y pago electrónico</h3>
+        <div class="logos">
+          <img src="imagenes/visa.svg">
+          <img src="imagenes/mastercard.svg">
+          <img src="imagenes/amex.svg">
+          <img src="imagenes/paypal.svg">
+        </div>
+      </div>
+
+      <div class="metodo-grupo">
+        <h3>Efectivo en cualquiera de las sucursales participantes</h3>
+        <div class="logos">
+          <img src="imagenes/oxxo.svg">
+          <img src="imagenes/seven.svg">
+          <img src="imagenes/walmart.svg">
+          <img src="imagenes/famahorro.svg">
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="ver-mas">Ver más información</a>
+  </div>
+</section>
+<!-- SECCIÓN TARJETAS / SERVICIOS -->
+<section class="programas-beneficios">
+  <div class="cards-beneficios">
+
+    <div class="card-beneficio">
+      <img src="imagenes/altitude.png" alt="altitude">
+      <h3>altitude</h3>
+      <p>Ahora puedes acumular puntos por todas tus compras. ¡Vuela y llega más alto!</p>
+      <a href="#" class="btn-card">Inscríbete ahora</a>
+    </div>
+
+    <div class="card-beneficio">
+      <img src="imagenes/paseanual.png" alt="Pase Anual">
+      <h3>Pase Anual</h3>
+      <p>Vuela todo lo que puedas por un año.</p>
+      <a href="#" class="btn-card">Inscríbete ahora</a>
+    </div>
+
+    <div class="card-beneficio">
+<img src="imagenes/vpass.png" alt="v.pass" class="img-vpass">
+      <h3>v.pass</h3>
+      <p>Un viaje te espera cada mes. v.pass, tu suscripción de vuelos.</p>
+      <a href="#" class="btn-card">Suscríbete ahora</a>
+    </div>
+
+    <div class="card-beneficio">
+      <img src="imagenes/invex.png" alt="INVEX">
+      <h3>INVEX</h3>
+      <p>Acumula pesos para comprar tus vuelos, ¡no millas ni puntos! Además, obtén equipaje gratis y meses sin intereses.</p>
+      <a href="#" class="btn-card">Solicita tu tarjeta</a>
+    </div>
+
+  </div>
+</section>
+<!-- SECCIÓN SERVICIOS ADICIONALES -->
+<section class="servicios-adicionales">
+  <div class="cards-servicios">
+
+    <div class="card-servicio">
+      <div class="icono-servicio">
+        <img src="imagenes/yavas.svg" alt="Ya Vas">
+      </div>
+      <h3>Vuelo + Hotel</h3>
+      <p>Encuentra las mejores ofertas para tu viaje.</p>
+    </div>
+
+    <div class="card-servicio">
+      <div class="icono-servicio">
+        <img src="imagenes/business.svg" alt="Business">
+      </div>
+      <h3>v.business</h3>
+      <p>La membresía con beneficios especiales para tus viajes de negocios.</p>
+    </div>
+
+    <div class="card-servicio">
+      <div class="icono-servicio">
+         <img src="imagenes/grupos.svg" alt="Grupos">
+      </div>
+      <h3>Grupos</h3>
+      <p>Obtén una cotización para grupos de más de 9 personas.</p>
+    </div>
+
+    <div class="card-servicio">
+      <div class="icono-servicio">
+        <img src="imagenes/beneficios.svg" alt="Beneficios">
+      </div>
+      <h3>Beneficios AIFA</h3>
+      <p>Obtén un precio preferencial en las casetas de la autopista al viajar desde o hacia el aeropuerto Felipe Ángeles.</p>
+    </div>
+
+    <div class="card-servicio">
+      <div class="icono-servicio">
+         <img src="imagenes/carga.svg" alt="Carga">
+      </div>
+      <h3>Carga</h3>
+      <p>Contamos con servicio de carga y mensajería.</p>
+    </div>
+
+  </div>
+</section>
+<footer class="footer">
+<!-- BARRA DE SUSCRIPCIÓN EN MEDIO -->
+<section class="suscripcion">
+  <div class="suscripcion-contenedor">
+    <div class="suscripcion-texto">
+      <p class="linea1">Se el primero en enterarte de nuestras</p>
+      <p class="linea2">Promociones</p>
+    </div>
+    <div class="suscripcion-form">
+      <input type="email" placeholder="Correo Electrónico" class="suscripcion-input">
+      <button class="suscripcion-btn">Suscribirme!</button>
+    </div>
+  </div>
+</section>
+<!-- PIE DE PÁGINA -->
+<footer class="footer">
+  <!-- SECCIÓN ENLACES DEL FOOTER - TODO EN UNO -->
+  <section class="footer-enlaces">
+    <div class="footer-columnas">
+      <!-- Columna 1: Nuestras rutas -->
+      <div class="footer-columna">
+        <h4>Nuestras rutas</h4>
+        <ul>
+          <li><a href="#">Vuelos a Aguascalientes</a></li>
+          <li><a href="#">Vuelos a Cancún</a></li>
+          <li><a href="#">Vuelos a Guatemala</a></li>
+          <li><a href="#">Vuelos a Culiacán</a></li>
+          <li><a href="#">Vuelos a Guadalajara</a></li>
+          <li><a href="#">Vuelos a Leon</a></li>
+          <li><a href="#">Vuelos a Ciudad de Mexico</a></li>
+          <li><a href="#">Vuelos a Morelia</a></li>
+          <li><a href="#">Vuelos a Tijuana</a></li>
+          <li><a href="#">Vuelos a Uruapan</a></li>
+          <li><a href="#">Vuelos a Costa Rica</a></li>
+          <li><a href="#">Vuelos a Los Ángeles</a></li>
+          <li><a href="#">Vuelos a Chicago</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 2: Información para tu viaje -->
+      <div class="footer-columna">
+        <h4>Información para tu viaje y derechos de los pasajeros</h4>
+        <ul>
+          <li><a href="#">FleetTicket</a></li>
+          <li><a href="#">Tarjetas Volaris INVEX</a></li>
+          <li><a href="#">Derechos que tienes al viajar</a></li>
+          <li><a href="#">con Volaris</a></li>
+          <li><a href="#">Equipaje</a></li>
+          <li><a href="#">Pase de abordar</a></li>
+          <li><a href="#">Cambio de vuelo</a></li>
+          <li><a href="#">altitude</a></li>
+          <li><a href="#">v.club</a></li>
+          <li><a href="#">v.business</a></li>
+          <li><a href="#">Suscripciones Volaris</a></li>
+          <li><a href="#">Documentos de viaje por país</a></li>
+          <li><a href="#">Conoce yavas.com</a></li>
+          <li><a href="#">Viajes con bebés</a></li>
+          <li><a href="#">Pagos diferidos</a></li>
+          <li><a href="#">Voucher electrónico</a></li>
+          <li><a href="#">Tarifas de Servicios</a></li>
+          <li><a href="#">Adicionales</a></li>
+          <li><a href="#">Cancelar tu reservación</a></li>
+          <li><a href="#">TUA</a></li>
+          <li><a href="#">Aeropuerto de Bogotá</a></li>
+          <li><a href="#">Avisos para vuelos a Colombia</a></li>
+          <li><a href="#">Facturación electrónica</a></li>
+          <li><a href="#">Pase anual</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Sobre Volaris -->
+      <div class="footer-columna">
+        <h4>Sobre Volaris</h4>
+        <p>Somos la aerolínea de ultra-bajo costo con vuelos en México, Estados Unidos, Centroamérica y Sudamérica.</p>
+        <ul>
+          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#">Relación con inversionistas</a></li>
+          <li><a href="#">Sostenibilidad corporativa</a></li>
+          <li><a href="#">Relación con inversionistas</a></li>
+          <li><a href="#">Sala de prensa</a></li>
+          <li><a href="#">Blog Volaris</a></li>
+          <li><a href="#">Revista V de Volaris</a></li>
+          <li><a href="#">Mapa del sitio</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 4 vacía -->
+      <div class="footer-columna"></div>
+
+      <!-- Columna 5 -->
+      <div class="footer-columna">
+        <h4>Descarga nuestra aplicación</h4>
+        <div class="apps-container">
+          <img src="imagenes/google-play.svg" class="app-btn" alt="Google Play">
+          <img src="imagenes/app-store.svg" class="app-btn" alt="App Store">
+        </div>
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+          <a href="#"><img src="imagenes/facebook.svg" class="icon"></a>
+          <a href="#"><img src="imagenes/x-twitter.svg" class="icon"></a>
+          <a href="#"><img src="imagenes/instagram.svg" class="icon"></a>
+          <a href="#"><img src="imagenes/tiktok.svg" class="icon"></a>
+          <a href="#"><img src="imagenes/linkedin.svg" class="icon"></a>
+          <a href="#"><img src="imagenes/whatsapp.svg" class="icon"></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Los 3 enlaces centrados -->
+    <div class="footer-links-top">
+      <a href="#">Ver todas las rutas</a>
+      <a href="#">Ver todo</a>
+      <a href="#">Más sobre Volaris</a>
+    </div>
+
+    <!-- Copyright y enlaces legales en la misma línea -->
+    <div class="footer-bottom-line">
+      <p>© 2025 Volaris y su logotipo son marcas registradas de Volaris</p>
+      
+      <div class="footer-enlaces-legales">
+        <a href="#">Términos y condiciones para volaris.com</a>
+        <a href="#">Aviso de privacidad</a>
+        <a href="#">Información legal</a>
+      </div>
+    </div>
+  </section>
+</footer>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = ['slide1', 'slide2', 'slide3'];
+  let currentSlide = 0;
+  // Botón anterior
+  document.querySelector('.prev').addEventListener('click', function() {
+    currentSlide = (currentSlide - 1 + 3) % 3;
+    document.getElementById(slides[currentSlide]).checked = true;
+  });
+  // Botón siguiente
+  document.querySelector('.next').addEventListener('click', function() {
+    currentSlide = (currentSlide + 1) % 3;
+    document.getElementById(slides[currentSlide]).checked = true;
+  });
+  // Cuando se hace clic en un círculo
+  document.querySelectorAll('.manual-btn').forEach((btn, index) => {
+    btn.addEventListener('click', function() {
+      currentSlide = index;
+    });
+  });
+  //  Cambio automático cada 4 segundos
+  setInterval(function() {
+    currentSlide = (currentSlide + 1) % 3;
+    document.getElementById(slides[currentSlide]).checked = true;
+  }, 7000);
+});
+</script>
+<script>
+// ========== CONFIGURACIÓN INICIAL ==========
+let adultos = 1;
+let menores = 0;
+let bebes = 0;
+let tipoViaje = 'redondo';
+
+// ========== FECHAS ==========
+const fechaSalidaInput = document.getElementById('fecha-salida');
+const fechaRegresoInput = document.getElementById('fecha-regreso');
+const campoRegreso = document.querySelector('.campo-regreso');
+
+// Establecer fecha mínima (hoy)
+const hoy = new Date();
+const fechaHoyStr = hoy.toISOString().split('T')[0];
+fechaSalidaInput.min = fechaHoyStr;
+fechaSalidaInput.value = fechaHoyStr;
+
+// Fecha regreso mínima (mañana)
+const manana = new Date(hoy);
+manana.setDate(manana.getDate() + 1);
+fechaRegresoInput.min = manana.toISOString().split('T')[0];
+fechaRegresoInput.value = manana.toISOString().split('T')[0];
+
+// Actualizar fecha mínima de regreso cuando cambia salida
+fechaSalidaInput.addEventListener('change', function() {
+  const fechaSalida = new Date(this.value);
+  const fechaRegresoMinima = new Date(fechaSalida);
+  fechaRegresoMinima.setDate(fechaRegresoMinima.getDate() + 1);
+  fechaRegresoInput.min = fechaRegresoMinima.toISOString().split('T')[0];
+  
+  // Si la fecha de regreso es anterior, ajustarla
+  if (new Date(fechaRegresoInput.value) <= fechaSalida) {
+    fechaRegresoInput.value = fechaRegresoMinima.toISOString().split('T')[0];
+  }
+});
+
+// ========== BOTONES VIAJE REDONDO/SENCILLO ==========
+document.querySelectorAll('.tabs button').forEach(btn => {
+  btn.addEventListener('click', function() {
+    // Remover clase activa de todos
+    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('on'));
+    // Agregar clase activa al clickeado
+    this.classList.add('on');
+    
+    tipoViaje = this.dataset.tipo;
+    
+    if (tipoViaje === 'sencillo') {
+      // Deshabilitar campo de regreso
+      campoRegreso.classList.add('disabled');
+      fechaRegresoInput.disabled = true;
+    } else {
+      // Habilitar campo de regreso
+      campoRegreso.classList.remove('disabled');
+      fechaRegresoInput.disabled = false;
+    }
+  });
+});
+
+// ========== CAMPO CÓDIGO PROMOCIONAL ==========
+const campoCodigo = document.querySelector('.campo-codigo');
+const inputCodigo = campoCodigo.querySelector('input');
+
+campoCodigo.addEventListener('click', function() {
+  this.classList.add('activo');
+  inputCodigo.focus();
+});
+
+// Remover clase activo si está vacío y pierde foco
+inputCodigo.addEventListener('blur', function() {
+  if (this.value === '') {
+    campoCodigo.classList.remove('activo');
+  }
+});
+
+// ========== PASAJEROS ==========
+const campoPasajeros = document.querySelector('.campo-pasajeros');
+const inputPasajeros = campoPasajeros.querySelector('input');
+
+// Toggle dropdown
+campoPasajeros.addEventListener('click', function(e) {
+  if (!e.target.closest('.counter button')) {
+    this.classList.toggle('active');
+  }
+});
+
+// Cerrar dropdown al hacer clic fuera
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.campo-pasajeros')) {
+    campoPasajeros.classList.remove('active');
+  }
+});
+
+// Contadores
+document.querySelectorAll('.counter button').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const type = this.dataset.type;
+    const isPlus = this.classList.contains('plus');
+    
+    if (type === 'adulto') {
+      if (isPlus && adultos < 9) adultos++;
+      else if (!isPlus && adultos > 0) adultos--;
+    } else if (type === 'menor') {
+      if (isPlus && menores < 9) menores++;
+      else if (!isPlus && menores > 0) menores--;
+    } else if (type === 'bebe') {
+      if (isPlus && bebes < 9) bebes++;
+      else if (!isPlus && bebes > 0) bebes--;
+    }
+    
+    actualizarPasajeros();
+    actualizarBotones();
+  });
+});
+
+function actualizarPasajeros() {
+  document.querySelector('.adulto-count').textContent = adultos;
+  document.querySelector('.menor-count').textContent = menores;
+  document.querySelector('.bebe-count').textContent = bebes;
+  
+  const partes = [];
+  if (adultos > 0) partes.push(`${adultos} Adulto${adultos > 1 ? 's' : ''}`);
+  if (menores > 0) partes.push(`${menores} Menor${menores > 1 ? 'es' : ''}`);
+  if (bebes > 0) partes.push(`${bebes} Bebé${bebes > 1 ? 's' : ''}`);
+  
+  inputPasajeros.value = partes.length > 0 ? partes.join(', ') : '0 Pasajeros';
+}
+
+function actualizarBotones() {
+  // Deshabilitar botones según límites
+  document.querySelectorAll('.plus[data-type="adulto"]').forEach(btn => {
+    btn.disabled = adultos >= 9;
+  });
+  document.querySelectorAll('.minus[data-type="adulto"]').forEach(btn => {
+    btn.disabled = adultos <= 0;
+  });
+  
+  document.querySelectorAll('.plus[data-type="menor"]').forEach(btn => {
+    btn.disabled = menores >= 9;
+  });
+  document.querySelectorAll('.minus[data-type="menor"]').forEach(btn => {
+    btn.disabled = menores <= 0;
+  });
+  
+  document.querySelectorAll('.plus[data-type="bebe"]').forEach(btn => {
+    btn.disabled = bebes >= 9;
+  });
+  document.querySelectorAll('.minus[data-type="bebe"]').forEach(btn => {
+    btn.disabled = bebes <= 0;
+  });
+}
+
+// Inicializar estados
+actualizarBotones();
+
+// ========== SLIDER (código existente) ==========
+const slides = ['slide1', 'slide2', 'slide3'];
+let currentSlide = 0;
+
+document.querySelector('.prev').addEventListener('click', function() {
+  currentSlide = (currentSlide - 1 + 3) % 3;
+  document.getElementById(slides[currentSlide]).checked = true;
+});
+
+document.querySelector('.next').addEventListener('click', function() {
+  currentSlide = (currentSlide + 1) % 3;
+  document.getElementById(slides[currentSlide]).checked = true;
+});
+
+document.querySelectorAll('.manual-btn').forEach((btn, index) => {
+  btn.addEventListener('click', function() {
+    currentSlide = index;
+  });
+});
+
+setInterval(function() {
+  currentSlide = (currentSlide + 1) % 3;
+  document.getElementById(slides[currentSlide]).checked = true;
+}, 7000);
+</script>
+<script>
+// Sistema de paginación para destinos
+let paginaActual = 0;
+const totalPaginas = 5;
+const tarjetasPorPagina = 4;
+
+const todasLasTarjetas = document.querySelectorAll('.destino-card');
+const puntos = document.querySelectorAll('.pagina-punto');
+const flechaDer = document.querySelector('.flecha-der');
+const flechaIzq = document.querySelector('.flecha-izq');
+
+function mostrarPagina(pagina, direccion = 'next') {
+  const inicio = pagina * tarjetasPorPagina;
+  const fin = inicio + tarjetasPorPagina;
+  
+  // Animar salida de tarjetas actuales
+  todasLasTarjetas.forEach((tarjeta, index) => {
+    if (tarjeta.classList.contains('visible')) {
+      if (direccion === 'next') {
+        tarjeta.style.animation = 'slideToLeft 0.5s ease forwards';
+      } else {
+        tarjeta.style.animation = 'slideToRight 0.5s ease forwards';
+      }
+    }
+  });
+  
+  // Después de la animación de salida, mostrar nuevas tarjetas
+  setTimeout(() => {
+    todasLasTarjetas.forEach(tarjeta => {
+      tarjeta.classList.remove('visible');
+      tarjeta.style.display = 'none';
+    });
+    
+    // Mostrar nuevas tarjetas con animación de entrada
+    for (let i = inicio; i < fin && i < todasLasTarjetas.length; i++) {
+      todasLasTarjetas[i].classList.add('visible');
+      todasLasTarjetas[i].style.display = 'block';
+      
+      if (direccion === 'next') {
+        todasLasTarjetas[i].style.animation = 'slideFromRight 0.5s ease forwards';
+      } else {
+        todasLasTarjetas[i].style.animation = 'slideFromLeft 0.5s ease forwards';
+      }
+    }
+  }, 500);
+  
+  // Actualizar puntos
+  puntos.forEach((punto, index) => {
+    punto.classList.toggle('activo', index === pagina);
+  });
+  
+  // Controlar flechas
+  flechaIzq.style.display = pagina === 0 ? 'none' : 'flex';
+  flechaDer.style.display = pagina === totalPaginas - 1 ? 'none' : 'flex';
+  
+  paginaActual = pagina;
+}
+
+flechaDer.addEventListener('click', () => {
+  if (paginaActual < totalPaginas - 1) {
+    mostrarPagina(paginaActual + 1, 'next');
+  }
+});
+
+flechaIzq.addEventListener('click', () => {
+  if (paginaActual > 0) {
+    mostrarPagina(paginaActual - 1, 'prev');
+  }
+});
+
+puntos.forEach((punto, index) => {
+  punto.addEventListener('click', () => {
+    const direccion = index > paginaActual ? 'next' : 'prev';
+    mostrarPagina(index, direccion);
+  });
+});
+
+// Inicializar
+mostrarPagina(0, 'next');
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const servicios = {
+    'yavas.svg': 'yavas-morado.svg',
+    'business.svg': 'business-morado.svg',
+    'grupos.svg': 'grupos-morado.svg',
+    'beneficios.svg': 'beneficios-morado.svg',
+    'carga.svg': 'carga-morado.svg'
+  };
+
+  document.querySelectorAll('.card-servicio').forEach(card => {
+    const img = card.querySelector('.icono-servicio img');
+    const originalSrc = img.src.split('/').pop(); // Obtener solo el nombre del archivo
+    
+    card.addEventListener('mouseenter', function() {
+      if (servicios[originalSrc]) {
+        img.src = img.src.replace(originalSrc, servicios[originalSrc]);
+      }
+    });
+
+    card.addEventListener('mouseleave', function() {
+      if (servicios[originalSrc]) {
+        img.src = img.src.replace(servicios[originalSrc], originalSrc);
+      }
+    });
+  });
+});
+</script>
+</html>
