@@ -14,7 +14,31 @@
   <div class="nav">
     <div class="nav-left">
       <img src="imagenes/volaris logo.png" class="logo">
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
+
+    <div class="nav-mobile">
+        <a>Español / $ MXN <span class="arrow">▼</span> <span class="divider"></span></a>
+        <a>Regístrate</a>
+        <button class="login">Iniciar sesión</button>
+        <nav class="nav-menu-mobile">
+            <a class="active">Vuelos</a>
+            <a>Vuelo + Hotel</a>
+            <a>Mi reserva</a>
+            <a>Estatus de vuelo</a>
+        </nav>
+        <div class="nav-second-right-mobile">
+            <a>Guía de viaje</a>
+            <a>Altitude</a>
+            <a>Nuestros destinos</a>
+            <a>Promociones</a>
+            <a>Privacidad</a>
+            <a>Contacto</a>
+        </div>
+    </div>
+
 
     <div class="nav-right">
       <a>Español / $ MXN <span class="arrow">▼</span> <span class="divider"></span></a>
@@ -1004,6 +1028,16 @@ puntos.forEach((punto, index) => {
 
 // Inicializar
 mostrarPagina(0, 'next');
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navMobile = document.querySelector('.nav-mobile');
+
+  menuToggle.addEventListener('click', function() {
+    navMobile.classList.toggle('active');
+  });
+});
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

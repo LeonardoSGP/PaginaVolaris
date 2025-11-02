@@ -1502,12 +1502,62 @@ input[type="date"]:disabled::-webkit-calendar-picker-indicator {
   padding-left: 90px; /* opcional para alinearlo igual que las columnas */
 }
 
-.footer-links-top a {
+.footer-links-bottom a {
   color: #fff;
   text-decoration: underline;
   font-size: 14px;
   font-weight: 500;
 }
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle i {
+  font-size: 24px;
+  color: #333;
+}
+
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+
+.nav-menu-mobile,
+.nav-second-right-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-menu-mobile a,
+.nav-second-right-mobile a {
+  text-decoration: none;
+  color: #4b4b4b;
+  font-size: 15px;
+}
+
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-right {
+    display: none;
+  }
+
+  .nav-mobile.active {
+    display: block;
+  }
+}
+
 
 /* Asegurar que cada uno caiga EXACTO en su columna */
 .footer-links-top a:nth-child(1) {
@@ -1555,47 +1605,193 @@ input[type="date"]:disabled::-webkit-calendar-picker-indicator {
 
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
+  .nav {
+    padding: 15px 30px;
+  }
+  .nav-second {
+    padding: 8px 30px;
+  }
+  .principal {
+    gap: 30px;
+  }
+  .buscador {
+    margin: 20px auto 40px 20px;
+  }
+  .mejores-vuelos {
+    padding: 10px 30px;
+  }
+  .destinos-container {
+    width: 100%;
+    padding: 0 40px;
+  }
+  .destinos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .pago-seguro,
+  .programas-beneficios,
+  .servicios-adicionales,
+  .suscripcion,
+  .footer-enlaces {
+    padding: 40px 30px;
+  }
+  .suscripcion-contenedor {
+    padding: 20px 30px;
+  }
+  .footer-columnas {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-fijo {
+    position: relative;
+  }
+  body {
+    padding-top: 0;
+  }
+  .nav-right {
+    display: none;
+  }
+  .nav-second {
+    display: none;
+  }
+  .principal {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .buscador {
+    margin: 0;
+    max-width: 100%;
+    padding: 20px;
+  }
+  .slider {
+    width: 100%;
+    height: 300px;
+  }
+  .formulario {
+    grid-template-columns: 1fr;
+  }
+  .swap {
+    display: none;
+  }
+  .botones {
+    grid-template-columns: 1fr;
+  }
+  .mejores-vuelos h2 {
+    font-size: 28px;
+  }
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .filtro-grupo {
+    justify-content: center;
+  }
+  .destinos-container {
+    padding: 0;
+  }
+  .flecha-destinos {
+    top: auto;
+    bottom: -50px;
+    transform: translateY(0);
+  }
+  .flecha-izq {
+    left: 20px;
+  }
+  .flecha-der {
+    right: 20px;
+  }
+  .pago-seguro h2 {
+    font-size: 28px;
+  }
+  .metodos-pago {
+    grid-template-columns: 1fr;
+  }
+  .cards-beneficios {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .cards-servicios {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .suscripcion-contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+  .suscripcion-texto {
+    text-align: center;
+  }
+  .suscripcion-form {
+    width: 100%;
+    max-width: 350px;
+  }
   .footer-columnas {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .suscripcion-form {
+  .footer-links-top {
+    display: none;
+  }
+  .footer-bottom-line {
     flex-direction: column;
+    gap: 15px;
   }
 }
 
-@media (max-width: 600px) {
-  .footer-columnas {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .logo {
+    height: 45px;
   }
-  
+  .campo-grande,
+  .campo-mediano {
+    min-height: 60px;
+  }
+  .campo-grande input {
+    font-size: 16px;
+  }
+  .mejores-vuelos {
+    padding: 10px 20px;
+  }
+  .pago-seguro,
+  .programas-beneficios,
+  .servicios-adicionales,
   .suscripcion,
-  .footer-enlaces,
-  .footer-final {
+  .footer-enlaces {
     padding: 30px 20px;
   }
 }
-  /* BUSCADOR MÁS COMPACTO */
-.buscador {
-  max-width: 1000px;
-  margin: 10px auto 20px 40px; /* Reducir márgenes */
-  background: transparent;
-  padding: 20px; /* Reducir padding */
-}
-.footer-links-bottom {
-  grid-column: 1 / 4;              /* ocupa solo las primeras 3 columnas */
-  display: flex;
-  justify-content: space-between;  /* separa los 3 textos */
-  margin-top: 40px;
-  padding: 0 40px;
-  text-align: center;
-}
 
-.footer-links-bottom a {
-  color: #fff;
-  text-decoration: underline;
-  font-size: 14px;
-  font-weight: 500;
+@media (max-width: 576px) {
+  .nav {
+    padding: 15px;
+  }
+  .buscador {
+    padding: 15px;
+  }
+  .tabs button {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+  .campo-grande,
+  .campo-mediano {
+    padding: 10px;
+  }
+  .mejores-vuelos h2 {
+    font-size: 24px;
+  }
+  .filtro-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+  .pago-seguro h2 {
+    font-size: 24px;
+  }
+  .suscripcion-texto .linea2 {
+    font-size: 22px;
+  }
+  .footer-columnas {
+    grid-template-columns: 1fr;
+  }
 }
 
