@@ -6,10 +6,35 @@
   position:relative;
   box-shadow:0 4px 12px rgba(0,0,0,.15);
 }
+
+/* Media queries para dispositivos móviles y tablets */
+@media screen and (max-width: 768px) {
+  .slider {
+    width: 100vw;
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slider {
+    height: 40vh;
+  }
+}
+
 .slides{
-  width:500%;
+  /* contenedor visible del slider */
+  width:100%;
+  height:100%;
+  position:relative;
+  overflow: hidden;
+}
+
+/* pista desplazable que contiene todas las diapositivas */
+.first{
+  width:300%; /* 3 slides -> 100% x 3 */
   height:100%;
   display:flex;
+  transition: all 0.8s ease-in-out;
 }
 
 .slides input{
@@ -17,15 +42,25 @@
 }
 
 .slide{
-  width:20%;
-  transition:0.8s;
+  width:33.3333%; /* 3 slides per track */
+  transition: all 0.8s ease-in-out;
   position:relative;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .slide img{
   width:100%;
   height:100%;
   object-fit:cover;
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Ajustes adicionales para imágenes en móviles */
+@media screen and (max-width: 768px) {
+  .slide img {
+    object-position: center;
+  }
 }
 
 .manual{
@@ -47,9 +82,26 @@
   background:white;
 }
 
-#slide1:checked ~ .first{margin-left:0}
-#slide2:checked ~ .first{margin-left:-20%}
-#slide3:checked ~ .first{margin-left:-40%}
+#slide1:checked ~ .first{
+  margin-left: 0;
+}
+#slide2:checked ~ .first{
+  margin-left: -100%;
+}
+#slide3:checked ~ .first{
+  margin-left: -200%;
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 .flechas {
   position: absolute;
@@ -109,7 +161,7 @@
 .destino-imagen {
   position: relative;
   width: 100%;
-  height: 160px;
+  height: 220px;
   overflow: hidden;
 }
 
@@ -117,6 +169,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.destino-card:hover .destino-imagen img {
+  transform: scale(1.05);
+  filter: brightness(1.05);
 }
 
 .imagen-contador {
@@ -131,17 +189,17 @@
   font-weight: 500;
 }
 .destino-info {
-  padding: 12px; /* Reducir padding */
+  padding: 10px; 
   text-align: right;
 }
 
 .destino-info h3 {
-  font-size: 14px; 
+  font-size: 20px; 
   font-weight: 600;
   color: #333;
   margin-bottom: 6px;
   line-height: 1.3;
-  text-align: left; /* AGREGAR ESTA LÍNEA */
+  text-align: left; 
 }
 
 .destino-info .fecha {
@@ -163,7 +221,7 @@
   margin-top: 0px;
 }
 .destino-info .precio-cantidad strong {
-  font-size: 16px; /* Precio más pequeño */
+  font-size: 30px; 
   color: #A12885;
   font-weight: 600;
 }
@@ -174,16 +232,16 @@
   font-weight: 600;
 }
 .destino-info .detalles {
-  font-size: 11px; /* Texto más pequeño */
+  font-size: 11px; 
   color: #888;
   line-height: 1.4;
-  margin-bottom: 25px; /* Menos margen */
+  margin-bottom: 25px; 
   margin-top: 2px;
 }
 .reserva-btn {
   background: #A12885;
   border: none;
-  padding: 8px 16px; /* Botón más pequeño */
+  padding: 8px 16px; 
   border-radius: 20px;
   font-size: 13px;
   font-weight: 500;
@@ -203,24 +261,68 @@
   color: #666;
 }
 
+@keyframes slideToLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+@keyframes slideToRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .destino-card {
   background: white;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   width: 245px;
   flex-shrink: 0;
-  display: none; /* Ocultar por defecto */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  opacity: 1;
 }
 
-.destino-card.visible {
-  display: block; /* Mostrar solo las visibles */
-}
 .destino-card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  border-color: #e0e0e0;
 }
 
 .card-beneficio {
