@@ -430,49 +430,38 @@
 }
 
 /* Estilos del Modal */
-.modal-overlay {
-    display: none; 
-    position: fixed;
-    z-index: 2000; 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5); 
-    align-items: center;
-    justify-content: center;
+/* Modal moved to css/modal.css; kept modal-specific styles there. */
+/* Hacer que las etiquetas del formulario sean grises */
+.formulario label,
+.campo-codigo .label-principal,
+.campo-mediano label {
+  color: #666; /* etiquetas grises */
 }
 
-.modal-content {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    position: relative;
-    animation: slideDown 0.3s ease-out;
+/* Estilos para el área de botones y campo de código promocional en línea */
+.botones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
 }
 
-@keyframes slideDown {
-    from {opacity: 0; transform: translateY(-50px);}
-    to {opacity: 1; transform: translateY(0);}
+.promo-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-.close-btn {
-    color: #aaa;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
+.promo-inline label {
+  font-size: 13px;
+  color: #666;
 }
 
-.close-btn:hover {
-    color: #333;
+.promo-inline input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
 }
 
 /* Hover: cambiar imagen y título a morado */

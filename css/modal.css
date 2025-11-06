@@ -1,0 +1,106 @@
+/* Estilos específicos para el modal (separados de components.css) */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    z-index: 10001; /* Above header (header z-index: 9999) */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,1); /* Fondo completamente oscuro */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Modal internal layout helpers - moved from inline styles in HTML */
+.modal-content .radio-group {
+    margin-bottom: 15px;
+}
+.modal-content .radio-group label + label {
+    margin-left: 15px;
+}
+
+.modal-content .modal-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-content .modal-col {
+    flex: 1;
+}
+
+.modal-content .modal-input,
+.modal-content .modal-select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.modal-content .modal-select {
+    -webkit-appearance: menulist;
+    appearance: menulist;
+}
+
+.modal-content .modal-action {
+    margin-bottom: 20px;
+}
+
+.modal-content .modal-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #8e24aa;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-content .modal-btn:hover {
+    background-color: #76207e;
+}
+
+@keyframes slideDown {
+    from {opacity: 0; transform: translateY(-50px);} 
+    to {opacity: 1; transform: translateY(0);} 
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+/* Etiquetas dentro del modal en gris para mejor contraste */
+.modal-content label {
+    color: #666; /* gris */
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
