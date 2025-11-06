@@ -1,13 +1,16 @@
-body{
-  margin:0;
-  font-family:Poppins, sans-serif;
-  background:#f6f6f6;
-    padding-top: 140px; /* altura combinada de las dos barras */
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: #f6f6f6;
+  padding-top: 140px;
 }
-html, body {
+
+html,
+body {
   overflow-x: hidden;
 }
-.header-fijo{
+
+.header-fijo {
   position: fixed;
   top: 0;
   left: 0;
@@ -17,60 +20,70 @@ html, body {
 }
 
 
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 50px;
-  background:white;
-  box-shadow:0 2px 6px rgba(0,0,0,.08);
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 50px;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
 }
 
-.nav-left, .nav-right {
-  display:flex;
-  align-items:center;
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
 }
+
 .logo {
   height: 55px;
-  margin-top: 4px ;
+  margin-top: 4px;
 }
+
 .nav-left {
   display: flex;
   align-items: center;
   gap: 40px;
 }
+
 .nav-left nav {
   display: flex;
   gap: 28px;
   margin: 0;
 }
-.nav-left nav a{
-  text-decoration:none;
-  font-size:15px;
-  color:#4b4b4b;
+
+.nav-left nav a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #4b4b4b;
   white-space: nowrap;
 }
-.nav-left nav a.active{
-  color:#A12885;
-  font-weight:600;
-  border-bottom:3px solid #A12885;
-  padding-bottom:4px;
+
+.nav-left nav a.active {
+  color: #A12885;
+  font-weight: 600;
+  border-bottom: 3px solid #A12885;
+  padding-bottom: 4px;
 }
-.nav-right{
-  display:flex;
-  align-items:center;
-  gap:18px;
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
 }
-.nav-right a{
-  text-decoration:none;
-  color:#4b4b4b;
-  font-size:14px;
+
+.nav-right a {
+  text-decoration: none;
+  color: #4b4b4b;
+  font-size: 14px;
   white-space: nowrap;
 }
+
 .nav-right a:first-child {
   border-left: 1px solid #ccc;
   padding-left: 18px;
 }
+
 .nav-right a .divider {
   color: #ccc;
   margin-right: 8px;
@@ -82,6 +95,7 @@ html, body {
   font-size: 10px;
   margin-left: 6px;
 }
+
 .nav-second {
   display: flex;
   justify-content: space-between;
@@ -89,9 +103,10 @@ html, body {
   padding: 8px 50px;
   background: white;
 }
+
 .nav-second .nav-menu {
   display: flex;
-  margin-left: 25px; 
+  margin-left: 25px;
   gap: 32px;
 }
 
@@ -99,44 +114,50 @@ html, body {
   color: #A12885 !important;
   font-weight: 500;
 }
-.nav-second .nav-menu a{
-  text-decoration:none;
-  color:#4b4b4b;
-  font-size:15px;
-  white-space:nowrap;
+
+.nav-second .nav-menu a {
+  text-decoration: none;
+  color: #4b4b4b;
+  font-size: 15px;
+  white-space: nowrap;
 }
-.nav-second .nav-menu a.active{
-  color:#A12885;
-  font-weight:600;
-  border-bottom:3px solid #A12885;
-  padding-bottom:4px;
+
+.nav-second .nav-menu a.active {
+  color: #A12885;
+  font-weight: 600;
+  border-bottom: 3px solid #A12885;
+  padding-bottom: 4px;
 }
+
 .nav-second a {
-  color:#333;
-  text-decoration:none;
+  color: #333;
+  text-decoration: none;
   white-space: nowrap;
   font-size: 12px;
-  
+
 }
+
 .nav-second .nav-second-right {
   display: flex;
   gap: 15px;
 }
+
 .nav-second a:hover {
-  color:#A12885;
+  color: #A12885;
 }
 
-.login{
-  background:white;
-  color:#A12885;
-  border:2px solid #A12885;
-  padding:8px 22px;
-  border-radius:24px;
-  font-weight:500;
-  cursor:pointer;
-  transition:.3s;
+.login {
+  background: white;
+  color: #A12885;
+  border: 2px solid #A12885;
+  padding: 8px 22px;
+  border-radius: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: .3s;
 }
-.login:hover{
-  background:#A12885;
-  color:white;
+
+.login:hover {
+  background: #A12885;
+  color: white;
 }

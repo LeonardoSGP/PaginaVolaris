@@ -1,9 +1,9 @@
-.principal{
-  display:flex;
-  justify-content:flex-start;
-  align-items:flex-start;
-  gap:60px;  
-  padding:0px 0px 20px 0px;
+.principal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 0px 0px 20px 0px;
   margin-top: 0;
 }
 
@@ -13,23 +13,25 @@
   padding: 10px 60px;
   background: #F0F0F0;
   border-top: 3px solid #e4efe9;
-  position: relative; 
-  z-index: 1; 
+  position: relative;
+  z-index: 1;
   margin-bottom: 20px;
 }
+
 .mejores-vuelos h2 {
   font-size: 36px;
   font-weight: 700;
   color: #333;
   margin-bottom: 40px;
-  margin-left: 25px; 
+  margin-left: 25px;
 }
+
 .mejores-vuelos .subtitulo {
   font-size: 14px;
   color: #888;
   margin-top: 10px;
   margin-bottom: 30px;
-  padding-left: 30px;   
+  padding-left: 30px;
 }
 
 .filtros {
@@ -100,17 +102,18 @@
 
 .destinos-container {
   position: relative;
-  width: 1000px; 
+  width: 1000px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 80px; 
+  padding: 0 80px;
 }
 
 .destinos-grid {
-  display: grid; 
-  grid-template-columns: repeat(4, 245px);
-  gap: 20px;
-  justify-content: center; 
+  display: flex;
+  gap: 12px;
+  transition: transform 0.5s ease-in-out;
+  width: fit-content;
+  padding: 0 4px;
 }
 
 .flecha-destinos {
@@ -130,15 +133,15 @@
   justify-content: center;
   transition: 0.3s;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .flecha-izq {
-  left: 0; 
+  left: 0;
 }
 
 .flecha-der {
-  right: 0; 
+  right: 0;
 }
 
 .flecha-destinos:hover {
@@ -174,8 +177,8 @@
 
 .pago-seguro {
   background: #F0F0F0;
-  padding: 0px 90px;  
-  margin-top: -30px; 
+  padding: 0px 90px;
+  margin-top: -30px;
 }
 
 .pago-seguro h2 {
@@ -183,7 +186,8 @@
   font-weight: 600;
   color: #333;
   margin-bottom: 40px;
-  margin-left: 0px; 
+  margin-left: 0px;
+  text-align: left;
 }
 
 .metodos-pago {
@@ -212,6 +216,12 @@
   object-fit: contain;
 }
 
+.metodos-pago {
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  align-items: center;
+}
+
 .pago-seguro .ver-mas {
   color: #9b2ba6;
   font-size: 14px;
@@ -222,19 +232,21 @@
 .pago-seguro .ver-mas:hover {
   text-decoration: underline;
 }
+
 .pago-box {
   background: white;
   max-width: 1000px;
-  margin-left: 0;   
-  padding: 30px 50px; 
+  margin: 0 auto;
+  padding: 30px 50px;
   border-radius: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
 }
 
 .pago-box .ver-mas {
   display: inline-block;
   margin-top: 20px;
 }
+
 .programas-beneficios {
   background: #F0F0F0;
   padding: 40px 90px;
@@ -243,9 +255,9 @@
 .cards-beneficios {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px; 
+  gap: 30px;
   max-width: 1100px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .servicios-adicionales {
@@ -260,7 +272,13 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   max-width: 1100px;
-  margin: 0;
+  margin: 0 auto;
+}
+
+/* Centrar títulos de secciones relacionadas */
+.programas-beneficios h2,
+.servicios-adicionales h2 {
+  text-align: center;
 }
 
 .footer {
@@ -279,13 +297,13 @@
 .suscripcion-contenedor {
   background: white;
   border-radius: 16px;
-  padding:20px 190px;
-  min-height: 60px; 
+  padding: 20px 190px;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px; 
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  gap: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .suscripcion-texto {
@@ -356,6 +374,7 @@
 .suscripcion-btn:hover {
   background: #7d2287;
 }
+
 /* FOOTER ENLACES */
 .footer-enlaces {
   background: #000;
@@ -365,35 +384,39 @@
 
 .footer-columnas {
   display: grid;
-  grid-template-columns: 1.4fr 1.4fr 1.4fr 0.3fr 0.5fr; 
-  gap: 60px;  
-  max-width: 1200px; 
+  grid-template-columns: 1.4fr 1.4fr 1.4fr 0.3fr 0.5fr;
+  gap: 60px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .footer-columna h4 {
-  font-size: 14px;        
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
   margin-bottom: 15px;
 }
+
 .footer-columna p {
   color: #ccc;
-  font-size: 11px;       
+  font-size: 11px;
   line-height: 1.3;
   margin-bottom: 10px;
 }
+
 .footer-columna ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 .footer-columna li {
-  margin-bottom: 6px;     
+  margin-bottom: 6px;
 }
+
 .footer-columna a {
   color: #ccc;
-  font-size: 11px;        
+  font-size: 11px;
   text-decoration: none;
   transition: .3s ease;
 }
@@ -414,20 +437,23 @@
   gap: 10px;
   margin-bottom: 20px;
 }
+
 .apps-container {
   display: flex;
-  gap: 10px;       
+  gap: 10px;
   margin: 10px 0 15px 0;
 }
 
 .app-btn {
-  height: 45px;     
+  height: 45px;
   cursor: pointer;
   transition: 0.3s;
 }
+
 .app-btn:hover {
   transform: scale(1.05);
 }
+
 .footer-columna {
   margin-bottom: 15px;
 }
@@ -454,7 +480,7 @@
 .social-icons a {
   width: 38px;
   height: 38px;
-  background:none;
+  background: none;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -467,7 +493,7 @@
 }
 
 .icon {
-  width: 40px; 
+  width: 40px;
   height: 40px;
 }
 
@@ -517,7 +543,7 @@
   width: 100%;
   background: white;
   padding: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .08);
 }
 
 .nav-menu-mobile,
@@ -537,6 +563,7 @@
 .footer-links-top a:nth-child(1) {
   margin-left: -90px;
 }
+
 .footer-links-top a:nth-child(2) {
   margin-left: -60px;
 }
@@ -581,25 +608,32 @@
   .nav {
     padding: 15px 30px;
   }
+
   .nav-second {
     padding: 8px 30px;
   }
+
   .principal {
     gap: 30px;
   }
+
   .buscador {
     margin: 20px auto 40px 20px;
   }
+
   .mejores-vuelos {
     padding: 10px 30px;
   }
+
   .destinos-container {
     width: 100%;
     padding: 0 40px;
   }
+
   .destinos-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
+
   .pago-seguro,
   .programas-beneficios,
   .servicios-adicionales,
@@ -607,9 +641,11 @@
   .footer-enlaces {
     padding: 40px 30px;
   }
+
   .suscripcion-contenedor {
     padding: 20px 30px;
   }
+
   .footer-columnas {
     gap: 30px;
   }
@@ -619,92 +655,118 @@
   .header-fijo {
     position: relative;
   }
+
   body {
     padding-top: 0;
   }
+
   .nav-right {
     display: none;
   }
+
   .nav-second {
     display: none;
   }
+
   .principal {
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 20px;
   }
+
   .buscador {
     margin: 0;
     max-width: 100%;
     padding: 20px;
   }
+
   .slider {
     width: 100%;
     height: 300px;
   }
+
   .formulario {
     grid-template-columns: 1fr;
   }
+
   .swap {
     display: none;
   }
+
   .botones {
     grid-template-columns: 1fr;
   }
+
   .mejores-vuelos h2 {
     font-size: 28px;
   }
+
   .filtros {
     flex-direction: column;
     align-items: stretch;
   }
+
   .filtro-grupo {
     justify-content: center;
   }
+
   .destinos-container {
     padding: 0;
   }
+
   .flecha-destinos {
     top: auto;
     bottom: -50px;
     transform: translateY(0);
   }
+
   .flecha-izq {
     left: 20px;
   }
+
   .flecha-der {
     right: 20px;
   }
+
   .pago-seguro h2 {
     font-size: 28px;
   }
+
   .metodos-pago {
     grid-template-columns: 1fr;
   }
+
   .cards-beneficios {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
+
   .cards-servicios {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+
   .suscripcion-contenedor {
     flex-direction: column;
     text-align: center;
   }
+
   .suscripcion-texto {
     text-align: center;
   }
+
   .suscripcion-form {
     width: 100%;
     max-width: 350px;
   }
+
   .footer-columnas {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .footer-links-top {
     display: none;
   }
+
   .footer-bottom-line {
     flex-direction: column;
     gap: 15px;
@@ -715,16 +777,20 @@
   .logo {
     height: 45px;
   }
+
   .campo-grande,
   .campo-mediano {
     min-height: 60px;
   }
+
   .campo-grande input {
     font-size: 16px;
   }
+
   .mejores-vuelos {
     padding: 10px 20px;
   }
+
   .pago-seguro,
   .programas-beneficios,
   .servicios-adicionales,
@@ -738,30 +804,38 @@
   .nav {
     padding: 15px;
   }
+
   .buscador {
     padding: 15px;
   }
+
   .tabs button {
     padding: 8px 15px;
     font-size: 13px;
   }
+
   .campo-grande,
   .campo-mediano {
     padding: 10px;
   }
+
   .mejores-vuelos h2 {
     font-size: 24px;
   }
+
   .filtro-btn {
     padding: 8px 20px;
     font-size: 13px;
   }
+
   .pago-seguro h2 {
     font-size: 24px;
   }
+
   .suscripcion-texto .linea2 {
     font-size: 22px;
   }
+
   .footer-columnas {
     grid-template-columns: 1fr;
     color: white
