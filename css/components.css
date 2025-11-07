@@ -405,7 +405,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px; /* Reducido para acercar al título */
+  margin-bottom: 8px; 
 }
 
 .icono-servicio img {
@@ -427,6 +427,39 @@
   color: #666;
   font-size: 12px !important; 
   line-height: 1.3 !important;
+}
+
+/* Estilos del Modal */
+
+.formulario label,
+.campo-codigo .label-principal,
+.campo-mediano label {
+  color: #666; 
+}
+
+.botones {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.promo-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.promo-inline label {
+  font-size: 13px;
+  color: #666;
+}
+
+.promo-inline input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 14px;
 }
 
 /* Hover: cambiar imagen y título a morado */
